@@ -1,0 +1,45 @@
+<p>
+  <strong>Title:</strong>
+  <%= @articulo.title %>
+</p>
+<p>
+  <strong>Text:</strong>
+  <%= @articulo.text %>
+</p>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<% if flash[:error] %>
+  <div class="notice"><%= flash[:error] %></div>
+<% end %>
+
+<h2>Agregar comentario:</h2>
+<!-- <%= form_with(model: [ @articulo, @articulo.comentarios.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :nombre %><br>
+    <%= form.text_field :nombre %>
+  </p>
+  <p>
+    <%= form.label :cuerpo %><br>
+    <%= form.text_field :cuerpo %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %> -->
+<%= render 'comentarios/form' %>
+
+<br>
+<!-- <p>
+  <strong>Texto:</strong>
+  <%= @articulo.text %>
+</p> -->
+
+<h2>comentarios</h2>
+<%= render @articulo.comentarios %>
+
+
+<%= link_to 'Regresar', articulos_path %>
+<%= link_to 'Editar', edit_articulo_path %>

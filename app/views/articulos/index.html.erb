@@ -1,0 +1,30 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"
+      rel="stylesheet">
+
+<h1>Lista de articulos</h1>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Texto</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @articulos.each do |articulo| %>
+  <tr>
+    <td><%= articulo.title %></td>
+    <td><%= articulo.text %></td>
+    <td><span class="glyphicon glyphicon-search"><%= link_to 'show', articulo_path(articulo)%></span></td>
+    <td><span class="glyphicon glyphicon-pencil"><%= link_to 'edit', edit_articulo_path(articulo)%></span></td>
+    <td><span class="glyphicon glyphicon-delete"><%= link_to 'delete', articulo_path(articulo),
+      method: :delete, data: {confirm: 'Confirmar Eliminación?'}%></span></td>
+  </tr>
+  <% end %>
+
+</table>
+
+<%= link_to 'Crear', :action=>"new", :controller=>"articulos"%> |
+
+<%= link_to 'Usuarios', :action=>"new", :controller=>"usuarios"%>
